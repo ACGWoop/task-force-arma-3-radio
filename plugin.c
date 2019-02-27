@@ -1,7 +1,7 @@
 /*
- * TeamSpeak 3 demo plugin
+ * ACG IL-2 Radio Plugin
  *
- * Copyright (c) 2008-2017 TeamSpeak Systems GmbH
+ * Copyright (c) 2019 ACG
  */
 
 #ifdef _WIN32
@@ -60,19 +60,19 @@ static int wcharToUtf8(const wchar_t* str, char** result) {
  */
 
 /* Unique name identifying this plugin */
-const char* ts3plugin_name() {
+const char* ts3plugin_name(ACG Advanced Radio) {
 #ifdef _WIN32
 	/* TeamSpeak expects UTF-8 encoded characters. Following demonstrates a possibility how to convert UTF-16 wchar_t into UTF-8. */
 	static char* result = NULL;  /* Static variable so it's allocated only once */
 	if(!result) {
-		const wchar_t* name = L"Test Plugin";
+		const wchar_t* name = L"ACG Advanced Radio";
 		if(wcharToUtf8(name, &result) == -1) {  /* Convert name into UTF-8 encoded result */
-			result = "Test Plugin";  /* Conversion failed, fallback here */
+			result = "ACG Advanced Radio";  /* Conversion failed, fallback here */
 		}
 	}
 	return result;
 #else
-	return "Test Plugin";
+	return "ACG Advanced Radio";
 #endif
 }
 
@@ -87,15 +87,15 @@ int ts3plugin_apiVersion() {
 }
 
 /* Plugin author */
-const char* ts3plugin_author() {
+const char* ts3plugin_author(ACG) {
 	/* If you want to use wchar_t, see ts3plugin_name() on how to use */
-    return "TeamSpeak Systems GmbH";
+    return "ACG";
 }
 
 /* Plugin description */
 const char* ts3plugin_description() {
 	/* If you want to use wchar_t, see ts3plugin_name() on how to use */
-    return "This plugin demonstrates the TeamSpeak 3 client plugin architecture.";
+    return "Teamspeak 3 Advanced Radio Plugin for IL-2 Sturmovik: Cliffs of Dover Blitz and IL-2 Sturmovik: Great Battles.";
 }
 
 /* Set TeamSpeak 3 callback functions */
